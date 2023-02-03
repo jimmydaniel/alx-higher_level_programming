@@ -1,31 +1,36 @@
 #!/usr/bin/python3
-"""
-This is the add_integer module.
-This module supplies one function, add_integer().
+""""
+This is the "0-add_integer" module.
+The 0-add_integer module supplies one function, add_integer(a, b).
 """
 
 
 def add_integer(a, b=98):
     """
-    Return the addition of a and b.
-    Args:
-        a (int, float): the first value.
-        b (int, float): the second value.
+    A function that adds 2 integers, Raises a TypeError Exception
+    and Returns the addition result
     """
-    if type(a) in [int, float]:
-        try:
-            a = int(a)
-        except:
-            raise TypeError('a must be an integer')
-    else:
-        raise TypeError('a must be an integer')
-
-    if type(b) in [int, float]:
-        try:
-            b = int(b)
-        except:
-            raise TypeError('b must be an integer')
-    else:
-        raise TypeError('b must be an integer')
-
+    if type(a) is not int and type(a) is not float:
+        raise TypeError("a must be an integer")
+    if type(b) is not int and type(b) is not float:
+        raise TypeError("b must be an integer")
+    if type(a) is float:
+        a = int(a)
+    if type(b) is float:
+        b = int(b)
     return a + b
+
+
+if __name__ == '__main__':
+    print(add_integer(1, 2))
+    print(add_integer(100, -2))
+    print(add_integer(2))
+    print(add_integer(100.3, -2))
+    try:
+        print(add_integer(4, "School"))
+    except Exception as e:
+        print(e)
+    try:
+        print(add_integer(None))
+    except Exception as e:
+        print(e)
