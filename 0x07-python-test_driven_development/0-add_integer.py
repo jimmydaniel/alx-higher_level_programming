@@ -1,28 +1,24 @@
 #!/usr/bin/python3
+"""
+The addition of two integer/float numbers.
+"""
 
-add_integer = __import__('0-add_integer').add_integer
 
+def add_integer(a, b=98):
+    """ Adds two integer and/or float numbers
+    Args:
+        a: first number
+        b: second number
+    Returns:
+        The addition of the two given numbers
+    Raises:
+        TypeError: If a or b aren't integer and/or float numbers
+    """
 
-print(add_integer(1, 2))
-
-print(add_integer(100, -2))
-
-print(add_integer(2))
-
-print(add_integer(100.3, -2))
-
-try:
-
-    print(add_integer(4, "School"))
-
-except Exception as e:
-
-    print(e)
-
-try:
-
-    print(add_integer(None))
-
-except Exception as e:
-
-    print(e)
+    if not isinstance(a, int) and not isinstance(a, float):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, int) and not isinstance(b, float):
+        raise TypeError("b must be an integer")
+    a = int(a)
+    b = int(b)
+    return (a + b)
